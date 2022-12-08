@@ -1,0 +1,72 @@
+<div class="bg-teal-800 p-4 flex justify-between">
+  <ul class="flex items-start mt-2">
+    <button
+      class="visible md:hidden md:mr-5 border border-white px-3 py-2 rounded-md text-white hover:bg-white hover:text-black"
+      (click)="sidebarClicker()"
+    >
+      <fa-icon [icon]="bars"></fa-icon>
+    </button>
+    <li
+      class="font-sans text-white text-2xl hover:text-2xl duration-150 md:text-xl ml-5 md:ml-0"
+    >
+      Recipie Book
+    </li>
+    <button
+      class="font-sans text-white hover:text-gray-300 duration-100 text-lg ml-5 invisible md:visible"
+      routerLink=" "
+      routerLinkActive="active"
+    >
+      Recipies
+    </button>
+    <button
+      class="font-sans text-white hover:text-gray-300 duration-100 text-lg ml-5 invisible md:visible"
+      routerLink="/shopping"
+      routerLinkActive="active"
+    >
+      Shopping list
+    </button>
+  </ul>
+  <ul class="flex justify-end mr-2 relative">
+    <button
+      class="bg-transparent hover:bg-white text-white font-sans hover:text-black py-2 px-1.5 border border-white hover:border-transparent rounded"
+      (click)="onManageClick()"
+    >
+      Manage
+    </button>
+    <div
+      *ngIf="Show"
+      class="absolute w-fit py-1 border border-1 border-neutral-400 bg-white rounded-md cursor-pointer mt-12"
+    >
+      <div class="py-2 px-4 w-full bg-white hover:bg-gray-300">Item 1</div>
+      <div class="py-2 px-4 w-full bg-white hover:bg-gray-300">Item 2</div>
+      <div class="py-2 px-4 w-full bg-white hover:bg-gray-300">Item 3</div>
+      <div class="py-2 px-4 w-full bg-white hover:bg-gray-300">Item 4</div>
+    </div>
+  </ul>
+</div>
+<div
+  class="fixed top-0 z-40 h-screen p-4 overflow-y-auto bg-teal-700 w-60"
+  tabindex="-1"
+  *ngIf="sidebar"
+>
+  <div class="flex justify-between">
+    <h5 class="text-center text-white font-sans text-lg">Menu</h5>
+    <button (click)="sidebarClicker()">
+      <fa-icon
+        [icon]="x"
+        class="text-white hover:bg-teal-600 p-1 mb-2"
+      ></fa-icon>
+    </button>
+  </div>
+
+  <hr class="p-5" />
+  <button class="w-full text-white pt-3 hover:bg-teal-600" routerLink="">
+    Recipies
+  </button>
+  <button
+    class="w-full text-white pt-3 hover:bg-teal-600"
+    routerLink="/shopping"
+  >
+    Shopping List
+  </button>
+</div>

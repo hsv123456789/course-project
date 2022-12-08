@@ -1,0 +1,29 @@
+<div
+  class="grid grid-cols-1 m-16 peer-only-of-type: md:grid-cols-3 md:m-0 justify-between"
+>
+  <div *ngFor="let induvidual of recipes; let i = index">
+    <div
+      class="p-6 flex-shrink-0 bg-gray-200 border border-black rounded-xl m-2.5"
+    >
+      <p class="text-center font-sans font-bold text-lg">
+        {{ induvidual.name }}
+      </p>
+      <img
+        class="text-center rounded-3xl"
+        [src]="induvidual.imagePath"
+        alt="picuture of {{ induvidual.name }}"
+      />
+      <p class="text-center font-sans mt-3">{{ induvidual.description }}</p>
+      <button
+        class="flex border border-black p-3 rounded-md bg-teal-800 text-white hover:bg-teal-700 duration-100"
+        (click)="popUpClicker(induvidual.visibility, i)"
+      >
+        View more
+      </button>
+    </div>
+    <app-popup
+      [visible]="induvidual.visibility"
+      [induviduval]="induvidual"
+    ></app-popup>
+  </div>
+</div>
